@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEOCODE - Learn Coding and Web developments</title>
+    <meta name="description" content="NeoCode — Learn and grow with the latest in tech! Access tutorials, quiz questions, and hands-on project practice to master new technology developments. Empower your tech journey with NeoCode">
+    <link rel="icon" type="image/x-icon" href="../image/favicon.jpg">
+    <link rel="icon" type="image/png" href="ai/DALL·E 2025-02-24 14.28.53 - Create a modern and sleek logo for 'NeoCode'. The logo should have a tech-inspired design with clean, sharp lines. Use a combination of green and blue.webp">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Open Graph Meta Tags (for Facebook and LinkedIn sharing) -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="NeoCode">
+    <meta property="og:description" content="NeoCode — Learn and grow with the latest in tech! Access tutorials, quiz questions, and hands-on project practice to master new technology developments. Empower your tech journey with NeoCode.">
+    <meta property="og:url" content="https://neocode.in">
+    <meta property="og:image" content="https://neocode.in/image/favicon.jpg">
+
+    <!-- Twitter Meta Tags (for Twitter sharing) -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Neocode">
+    <meta property="twitter:description" content="NeoCode — Learn and grow with the latest in tech! Access tutorials, quiz questions, and hands-on project practice to master new technology developments. Empower your tech journey with NeoCode">
+    <meta property="twitter:image" content="https://neocode.in/image/favicon.jpg">
+
+    <!-- Font Awesome for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!--<link rel="stylesheet" href="neocode_style.css">-->
+    <style>
+        /* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F0FFF0; /* Pale mint green */
+    color: #333; /* Dark text for readability */
+    /*line-height: 1.6;*/
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 6rem 5% 4rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    animation: fadeIn 2s ease-in-out;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    color: #333;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    color: #1DBF73; /* Green */
+    font-weight: bold;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+}
+
+.typing-text {
+    color: #1DBF73; /* Green */
+    font-weight: bold;
+}
+
+/* Filter Section */
+.filter-section {
+    padding: 2rem 5%;
+    text-align: center;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.filter-section h2 {
+    font-size: 2rem;
+    color: #1DBF73; /* Green */
+}
+
+.filter-section input {
+    padding: 0.5rem;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 20px;
+    border: 1px solid #1DBF73; /* Green */
+    outline: none;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+}
+
+.filter-section input:focus {
+    border-color: #17a362; /* Darker green */
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-buttons button, .dropdown button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px;
+    /*background: #F4A7B9; */
+    background: #1DBF73;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-size: 1rem;
+}
+
+.filter-buttons button:hover, .dropdown button:hover {
+    
+    transform: translateY(-2px);
+    background: #7FCF7F; 
+    color: #DFFFD6;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: #fff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.dropdown-content button {
+    width: 100%;
+    text-align: left;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: #fff;
+    color: #252641;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dropdown-content button:hover {
+    /*background: #FFC107; */
+    background: #7FCF7F; 
+    color: #DFFFD6;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Courses Section */
+.courses {
+    padding: 2rem 5%;
+    text-align: center;
+}
+
+.courses h2 {
+    font-size: 2.5rem;
+    color: #1DBF73; /* Green */
+    margin-bottom: 2rem;
+}
+
+.course-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.course-card {
+    background: #FFFFFF;
+    color: #2F4F4F; /* Dark slate gray */
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(255, 127, 80, 0.5); /* Light border */
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.course-card .heading h3 {
+    font-size: 1.5rem;
+    color: #2F4F4F; /* Dark slate gray */
+    text-align: center;
+}
+
+.course-card .disc p {
+    font-size: 1rem;
+    color: #2F4F4F; /* Dark slate gray */
+}
+
+.course-card .enroll {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px;
+    background: #1DBF73; /* Pink */
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.course-card .enroll:hover {
+    background: #7FCF7F; 
+    color: #DFFFD6;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(to right, #2F4F4F, #1C2E3A);
+    color: #FFFFFF;
+    margin-top: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #1DBF73; /* Green */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #17a362; /* Darker green */
+}
+
+/* Instagram Share Dialog */
+#instagramShareDialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#instagramShareDialog input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#instagramShareDialog button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #1DBF73; /* Green */
+    color: white;
+    cursor: pointer;
+    margin: 5px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#instagramShareDialog button:hover {
+    background: #17a362; /* Darker green */
+    transform: translateY(-2px);
+}
+
+/* Social Sharing */
+.social-sharing {
+    margin-top: 20px;
+}
+
+.social-sharing a {
+    margin: 0 10px;
+    color: #1DBF73; /* Green */
+    font-size: 24px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-sharing a:hover {
+    color: #17a362; /* Darker green */
+    transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section h1 { font-size: 2rem; }
+    .hero-section p { font-size: 1rem; }
+    .course-list { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+}
+
+@media (max-width: 480px) {
+    .hero-section h1 { font-size: 1.5rem; }
+    .hero-section p { font-size: 0.9rem; }
+    .course-list { grid-template-columns: 1fr; }
+    .course-card{margin-right:1.75rem;}
+}
+    </style>
+   
+</head>
+<body>
+    <header>
+        <?php include("./navbar.php") ?>
+    </header>
+
+    <section class="hero-section">
+        <h1>Welcome to NEOCODE</h1>
+        <p>Your path to success starts with <span class="typing-text" id="typing"></span></p>
+    </section>
+    
+    <?php include("./new_update.html") ?>
+
+    <!--<section class="filter-section">-->
+    <!--    <h2>Search and Filter Courses</h2>-->
+    <!--    <input type="text" id="searchInput" placeholder="Search for a course..." onkeyup="searchCourses()">-->
+    <!--    <br>-->
+    <!--    <div class="filter-buttons">-->
+    <!--        <button onclick="filterCourses('all')">Show All</button>-->
+    <!--        <div class="dropdown">-->
+    <!--            <button>Full Stack</button>-->
+    <!--            <div class="dropdown-content">-->
+    <!--                <button onclick="filterCourses('frontend')">Frontend</button>-->
+    <!--                <button onclick="filterCourses('backend')">Backend</button>-->
+    <!--                <button onclick="filterCourses('database')">Database</button>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--        <div class="dropdown">-->
+    <!--            <button>Coding</button>-->
+    <!--            <div class="dropdown-content">-->
+    <!--                <button onclick="filterCourses('c')">C</button>-->
+    <!--                <button onclick="filterCourses('cpp')">C++</button>-->
+                    <!--<button onclick="filterCourses('dsa')">DSA</button>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--        <button onclick="filterCourses('lpu')">LPU</button>-->
+    <!--    </div>-->
+    <!--</section>-->
+
+    <!--<section class="courses">-->
+    <!--    <h2>Available Courses</h2>-->
+    <!--    <div class="course-list" id="course-list">-->
+    <!--        <div class="course-card" data-category="frontend">-->
+    <!--            <div class="heading">-->
+    <!--                <h3>HTML</h3>-->
+    <!--            </div>-->
+    <!--            <div class="disc">-->
+    <!--                <p>Learn HTML to build web pages from scratch! Master tags, elements, and structure — the perfect starting point for your web development journey.</p>-->
+    <!--                <p><b>Duration: 15 Hours</b></p>-->
+    <!--            </div>-->
+    <!--            <a href="./html/html.php"><button class="enroll">Start Now</button></a>-->
+    <!--        </div>-->
+    <!--        <div class="course-card" data-category="frontend">-->
+    <!--            <div class="heading">-->
+    <!--                <h3>CSS</h3>-->
+    <!--            </div>-->
+    <!--            <div class="disc">-->
+    <!--                <p>Learn CSS to style and design beautiful, responsive websites! Master layouts, colors, animations, and bring your HTML to life with stunning visuals.</p>-->
+    <!--                <p><b>Duration: 20 Hours</b></p>-->
+    <!--            </div>-->
+    <!--            <a href="./css/css.php"><button class="enroll">Start Now</button></a>-->
+    <!--        </div>-->
+    <!--        <div class="course-card" data-category="frontend">-->
+    <!--            <div class="heading">-->
+    <!--                <h3>JavaScript</h3>-->
+    <!--            </div>-->
+    <!--            <div class="disc">-->
+    <!--                <p>Learn JavaScript to add interactivity and functionality to your websites! Master dynamic elements, events, and build powerful, responsive web applications.</p>-->
+    <!--                <p><b>Duration: 25 Hours</b></p>-->
+    <!--            </div>-->
+    <!--            <a href="./js/js.php"><button class="enroll">Start Now</button></a>-->
+    <!--        </div>-->
+    <!--        <div class="course-card" data-category="backend">-->
+    <!--            <div class="heading">-->
+    <!--                <h3>PHP</h3>-->
+    <!--            </div>-->
+    <!--            <div class="disc">-->
+    <!--                <p>Learn PHP to build dynamic, server-side web applications! Master forms, databases, and create powerful, interactive websites with backend functionality.</p>-->
+    <!--                <p><b>Duration: 20 Hours</b></p>-->
+    <!--            </div>-->
+    <!--            <a href="./php/php.php"><button class="enroll">Start Now</button></a>-->
+    <!--        </div>-->
+    <!--        <div class="course-card" data-category="database">-->
+    <!--            <div class="heading">-->
+    <!--                <h3>MySQL</h3>-->
+    <!--            </div>-->
+    <!--            <div class="disc">-->
+    <!--                <p>Learn MySQL to manage databases, write queries, and build dynamic, data-driven web applications!</p>-->
+    <!--                <p><b>Duration: 15 Hours</b></p>-->
+    <!--            </div>-->
+    <!--            <a href="./sql/sql.php"><button class="enroll">Start Now</button></a>-->
+    <!--        </div>-->
+    <!--        <div class="course-card" data-category="c">-->
+    <!--            <div class="heading">-->
+    <!--                <h3>C Programming</h3>-->
+    <!--            </div>-->
+    <!--            <div class="disc">-->
+    <!--                <p>Learn C programming to master fundamentals, build efficient algorithms, and create powerful, low-level applications!</p>-->
+    <!--                <p><b>Duration: 30 Hours</b></p>-->
+    <!--            </div>-->
+    <!--            <a href="./c/c.php"><button class="enroll">Start Now</button></a>-->
+    <!--        </div>-->
+    <!--        <div class="course-card" data-category="cpp">-->
+    <!--            <div class="heading">-->
+    <!--                <h3>C++(CPP or C++)</h3>-->
+    <!--            </div>-->
+    <!--            <div class="disc">-->
+    <!--                <p>Learn C++ to build high-performance applications, master object-oriented programming, and solve complex problems!</p>-->
+    <!--                <p><b>Duration: 35 Hours</b></p>-->
+    <!--            </div>-->
+    <!--            <a href="c++/intro_cpp.php"><button class="enroll">Start Now</button></a>-->
+    <!--        </div>-->
+            <!--<div class="course-card" data-category="dsa">-->
+            <!--    <div class="heading">-->
+            <!--        <h3>Data Structures & Algorithms(DSA)</h3>-->
+            <!--    </div>-->
+            <!--    <div class="disc">-->
+            <!--        <p>Learn DSA (Data Structures & Algorithms) to write efficient code, ace coding interviews, and solve complex problems!</p>-->
+            <!--        <p><b>Duration: 40 Hours</b></p>-->
+            <!--    </div>-->
+            <!--    <a href="./dsa/dsa.php"><button class="enroll">Start Now</button></a>-->
+            <!--</div>-->
+    <!--        <div class="course-card" data-category="lpu">-->
+    <!--            <div class="heading">-->
+    <!--                <h3>LPU Contents</h3>-->
+    <!--            </div>-->
+    <!--            <div class="disc">-->
+    <!--                <p>Learn All Subjects</p>-->
+    <!--            </div>-->
+    <!--            <a href="./lpu/home_lpu.php"><button class="enroll">Start Now</button></a>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</section>-->
+    
+  
+    <section class="filter-section"><h2>Search Courses with name or course code</h2>
+        <input type="text" id="searchInput" placeholder="Search for a course..." onkeyup="searchCourses()">
+        <br></section>
+        
+         
+
+        
+    <section class="courses">
+        <h2>Available Courses</h2>
+        
+        <div class="course-list" id="course-list">
+            
+            <div class="course-card" data-category="frontend">
+                <div class="heading">
+                    <h3>Software Engineering (CSE320)</h3>
+                </div>
+                <div class="disc">
+                    <p>Software engineering is the disciplined application of engineering principles to design, develop, test, and maintain software.</p>
+                    <p><b>Duration: 10 Hours</b></p>
+                </div>
+                <a href="../software_engineering/home.php"><button class="enroll">Start Now</button></a>
+            </div>
+
+            <div class="course-card" data-category="frontend">
+                <div class="heading">
+                    <h3>Design and Analysis of Algorithms (DAA) (CSE408)</h3>
+                </div>
+                <div class="disc">
+                    <p>Design and Analysis of Algorithms (DAA) studies algorithm efficiency, optimization, complexity, and problem-solving techniques systematically.</p>
+                    <p><b>Duration: 15 Hours</b></p>
+                </div>
+                <a href="../daa/home_daa.php"><button class="enroll">Start Now</button></a>
+            </div>
+            
+             <div class="course-card" data-category="frontend">
+                <div class="heading">
+                    <h3>Artificial Intelligence Essencials (INT428)</h3>
+                </div>
+                <div class="disc">
+                    <p>In this section we will study about Artificial Intelligence Essencials.</p>
+                    <p><b>Duration: 10 Hours</b></p>
+                </div>
+                <a href="../artificial_intelligence/home_ai.php"><button class="enroll">Start Now</button></a>
+            </div>
+
+            <div class="course-card" data-category="frontend">
+                <div class="heading">
+                    <h3>Operating System (OS) (CSE316)</h3>
+                </div>
+                <div class="disc">
+                    <p>An operating system (OS) is system software that manages hardware, software, memory, and processes, enabling user interaction with a computer.</p>
+                    <p><b>Duration: 10 Hours</b></p>
+                </div>
+                <a href="../os/home_os.php"><button class="enroll">Start Now</button></a>
+            </div>
+        
+        
+        
+            
+            <div class="course-card" data-category="frontend">
+                <div class="heading">
+                    <h3>COMPUTER ORGANIZATION AND DESIGN (CSE211)</h3>
+                </div>
+                <div class="disc">
+                    <p>Computer Organization and Design explores hardware structure, data processing, instruction execution, memory hierarchy, and performance optimization in modern computing systems.</p>
+                    <p><b>Duration: 10 Hours</b></p>
+                </div>
+                <a href="../cod/home_cod.php"><button class="enroll">Start Now</button></a>
+            </div>
+            
+            
+            
+            
+            <div class="course-card" data-category="frontend">
+                <div class="heading">
+                    <h3>COMPUTER NETWORKS (CSE306)</h3>
+                </div>
+                <div class="disc">
+                    <p>Computer networking enables communication between devices, allowing data sharing, internet access, and resource allocation through wired or wireless connections efficiently.</p>
+                    <p><b>Duration: 8 Hours</b></p>
+                </div>
+                <a href="../computer_network/home_cn.php"><button class="enroll">Start Now</button></a>
+            </div>
+            
+             <div class="course-card" data-category="frontend">
+                <div class="heading">
+                    <h3>Orientation To Computing-1 (CSE111)</h3>
+                </div>
+                <div class="disc">
+                    <p>Orientation to Computing is to let you know about different domains of computer</p>
+                    <p><b>Duration: 10 Hours</b></p>
+                </div>
+                <a href="../cse111/home_cse111.php"><button class="enroll">Start Now</button></a>
+            </div>
+            
+            <div class="course-card" data-category="frontend">
+                <div class="heading">
+                    <h3>Orientation To Computing-2 (CSE121)</h3>
+                </div>
+                <div class="disc">
+                    <p>Orientation to Computing is to let you know about different domains of computer</p>
+                    <p><b>Duration: 12 Hours</b></p>
+                </div>
+                <a href="../cse121/home.php"><button class="enroll">Start Now</button></a>
+            </div>
+            
+           
+            
+            <div class="course-card" data-category="frontend">
+                <div class="heading">
+                    <h3>Analytical Skills-1 (PEA305)</h3>
+                </div>
+                <div class="disc">
+                    <p>Analytical skills involve critical thinking, problem-solving, and data interpretation to make informed decisions, identify patterns, and evaluate complex situations effectively in various fields.</p>
+                    <p><b>Duration: 10 Hours</b></p>
+                </div>
+                <a href="../pea305/home_pea305.php"><button class="enroll">Start Now</button></a>
+            </div>
+            <div class="course-card" data-category="frontend">
+                <div class="heading">
+                    <h3>Analytical Skills (PEA306)</h3>
+                </div>
+                <div class="disc">
+                    <p>Analytical skills involve critical thinking, problem-solving, and data interpretation to make informed decisions, identify patterns, and evaluate complex situations effectively in various fields.</p>
+                    <p><b>Duration: 10 Hours</b></p>
+                </div>
+                <a href="../pea306/homepea306.php"><button class="enroll">Start Now</button></a>
+            </div>
+            
+            
+            <div class="course-card" data-category="frontend">
+                <div class="heading">
+                    <h3>Cybersecurity Essentials (INT 242)</h3>
+                </div>
+                <div class="disc">
+                    <p>Cybersecurity involves infosec , threats and vulnerability , authentication control and secure network , cloud network indicators of malicious activity etc .</p>
+                    <p><b>Duration: 45 Hours</b></p>
+                </div>
+                <a href="../cyber/home.php"><button class="enroll">Start Now</button></a>
+            </div>
+            
+            
+            <div class="course-card" data-category="frontend">
+                <div class="heading">
+                    <h3>Probability and Statistics (MTH302)</h3>
+                </div>
+                <div class="disc">
+                    <p>Probability and Statistics analyze uncertainty and data patterns. Probability models randomness, while statistics interprets data for decision-making. They are essential in science, engineering, AI, finance, and research for informed predictions and insights.</p>
+                    <p><b>Duration: 10 Hours</b></p>
+                </div>
+                <a href="../mth302/home_mth302.php"><button class="enroll">Start Now</button></a>
+            </div>
+            
+            
+            <div class="course-card" data-category="frontend">
+                <div class="heading">
+                    <h3>System Administration (INT 242)</h3>
+                </div>
+                <div class="disc">
+                    <p>Windows Server , Virtual Environment , Server Configuration and Implimentation of Storage Solution  ,Server Hardning Techniques , Process of managing linux etc </p>
+                    <p><b>Duration: 10 Hours</b></p>
+                </div>
+                <a href="../system/home.php"><button class="enroll">Start Now</button></a>
+            </div>
+            
+            <div class="course-card" data-category="frontend">
+                <div class="heading">
+                    <h3>Discret mathematics (MTH401)</h3>
+                </div>
+                <div class="disc">
+                    <p>Logicak Preposition , solving counting problems , properties of graph , graph theoritic concept , chromatic number and tree graph , linearn congurence </p>
+                    <p><b>Duration: 18 Hours</b></p>
+                </div>
+                <a href="../mth401/home.php"><button class="enroll">Start Now</button></a>
+            </div>
+            
+            <!--BCA subject -->
+            
+             <div class="course-card" data-category="frontend">
+                <div class="heading">
+                    <h3>Database Management Systems (CAP200)</h3>
+                </div>
+                <div class="disc">
+                    <p>A Database Management System (DBMS) is software that stores, organizes, and manages data efficiently. It enables secure access, retrieval, and manipulation of data, ensuring integrity and scalability for various applications..</p>
+                    <p><b>Duration: 10 Hours</b></p>
+                </div>
+                <a href="../database_management_system/home_dms.php"><button class="enroll">Start Now</button></a>
+            </div>
+            
+            <!--AI -->
+            
+            <div class="course-card" data-category="frontend">
+                <div class="heading">
+                    <h3>Soft Computing (INT256)</h3>
+                </div>
+                <div class="disc">
+                    <p>Soft computing is an AI approach that mimics human reasoning, handling uncertainty and imprecision. It integrates fuzzy logic, neural networks, and genetic algorithms for problem-solving in dynamic environments, enhancing adaptability and decision-making.</p>
+                    <p><b>Duration: 10 Hours</b></p>
+                </div>
+                <a href="../soft_computing/home_soft_computing.php"><button class="enroll">Start Now</button></a>
+            </div>
+            
+            <div class="course-card" data-category="frontend">
+                <div class="heading">
+                    <h3>ENGINEERING PHYSICS (PHY110)</h3>
+                </div>
+                <div class="disc">
+                    <p>Engineering Physics blends physics, mathematics, and engineering to develop innovative technologies. It bridges fundamental science and practical applications, enabling advancements in materials, electronics, energy, and emerging fields like nanotechnology and quantum computing.</p>
+                    <p><b>Duration: 10 Hours</b></p>
+                </div>
+                <a href="../physics/home_phy.php"><button class="enroll">Start Now</button></a>
+            </div>
+            <div class="course-card" data-category="frontend">
+                <div class="heading">
+                    <h3>ENGINEERING mathematics (MTH174)</h3>
+                </div>
+                <div class="disc">
+                    <p>Engineering mathematics covers matrices and its applications , different methods to solve linear differential equation ,  fourier series , multi variable differential calculus , surface and volume integral using multi variable integral calculus.</p>
+                    <p><b>Duration: 10 Hours</b></p>
+                </div>
+                <a href="../mth174/home.php"><button class="enroll">Start Now</button></a>
+            </div>
+            
+             <div class="course-card" data-category="frontend">
+                <div class="heading">
+                    <h3>BASIC ELECTRICAL AND ELECTRONICS ENGINEERING (ECE249)</h3>
+                </div>
+                <div class="disc">
+                    <p>In this subject, we will study about electronics and fundamental electrical concepts.</p>
+                    <p><b>Duration: 20 Hours</b></p>
+                </div>
+                <a href="../electrical/home_electrical.php"><button class="enroll">Start Now</button></a>
+            </div>
+            
+            <div class="course-card" data-category="frontend">
+                <div class="heading">
+                    <h3>ENVIRONMENTAL STUDIES (CHE110)</h3>
+                </div>
+                <div class="disc">
+                    <p>In this subject, we will study about ENVIRONMENTAL STUDIES.</p>
+                    <p><b>Duration: 10 Hours</b></p>
+                </div>
+                <a href="../enviromental_study/home_enviromental_study.php"><button class="enroll">Start Now</button></a>
+            </div>
+            
+        </div>
+    </section>
+    <footer>
+        <p>© 2025 NEOCODE. All rights reserved.<br>
+           <div class="social-sharing">
+            <div class="social-sharing">
+            <p>Share this post:</p>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://neocode.in" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/intent/tweet?url=https://neocode.in" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/shareArticle?url=https://neocode.in" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://api.whatsapp.com/send?text= Check this website for better coding skills and practice questions https://neocode.in" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" onclick="openInstagramShareDialog()"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <!-- Instagram Share Dialog -->
+    <div id="instagramShareDialog">
+        <p>Copy the link below to share on Instagram:</p>
+        <input type="text" id="shareLink" value="https://neocode.in" readonly>
+        <button onclick="copyToClipboard()">Copy Link</button>
+        <button onclick="closeInstagramShareDialog()">Close</button>
+    </div>
+
+     <?php include("./backToTop.html") ?>
+
+    <script>
+        const phrases = ["Full Stack Development",  "C Programming", "C++ Programming", "Software Engineering"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        const typingElement = document.getElementById('typing');
+
+        function typeEffect() {
+            if (charIndex < phrases[phraseIndex].length) {
+                typingElement.innerHTML += phrases[phraseIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeEffect, 100);
+            } else {
+                setTimeout(eraseEffect, 1000);
+            }
+        }
+
+        function eraseEffect() {
+            if (charIndex > 0) {
+                typingElement.innerHTML = phrases[phraseIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(eraseEffect, 50);
+            } else {
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                setTimeout(typeEffect, 1000);
+            }
+        }
+
+        typeEffect();
+
+        function filterCourses(category) {
+            const courses = document.querySelectorAll('.course-card');
+            courses.forEach(course => {
+                if (category === 'all' || course.dataset.category === category) {
+                    course.style.display = 'block';
+                } else {
+                    course.style.display = 'none';
+                }
+            });
+        }
+
+        function searchCourses() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const courses = document.querySelectorAll('.course-card');
+            
+            courses.forEach(course => {
+                const title = course.querySelector('h3').innerText.toLowerCase();
+                if (title.includes(input)) {
+                    course.style.display = 'block';
+                } else {
+                    course.style.display = 'none';
+                }
+            });
+        }
+        // Instagram Share Dialog Functions
+        function openInstagramShareDialog() {
+            document.getElementById("instagramShareDialog").style.display = "block";
+        }
+
+        function closeInstagramShareDialog() {
+            document.getElementById("instagramShareDialog").style.display = "none";
+        }
+
+        function copyToClipboard() {
+            const shareLink = document.getElementById("shareLink");
+            shareLink.select();
+            document.execCommand("copy");
+            alert("Link copied to clipboard! You can now share it on Instagram.");}
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2261533456327289"
+     crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu" crossorigin="anonymous"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>-->
+</body>
+</html>
